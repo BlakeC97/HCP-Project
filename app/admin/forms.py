@@ -1,8 +1,6 @@
 from flask_wtf import FlaskForm as Form
 from wtforms import FileField
-from wtforms.validators import (
-    DataRequired,
-)
+from wtforms.validators import DataRequired
 
 
 class FileSizeValidator(object):
@@ -32,4 +30,7 @@ class CSVFileValidator(object):
 
 
 class ProviderImportForm(Form):
-    file = FileField(validators=[DataRequired(), FileSizeValidator(), CSVFileValidator()], description="Import Provider data from CSV file.")
+    file = FileField(
+        validators=[DataRequired(), FileSizeValidator(), CSVFileValidator()],
+        description="Import Provider data from CSV file.",
+    )

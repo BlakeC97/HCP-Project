@@ -18,9 +18,12 @@ admin = Admin(app, name="Admin", template_mode="bootstrap3")
 class ModelView(ModelView):
     def is_accessible(self):
         auth = request.authorization or request.environ.get(
-            "REMOTE_USER")  # workaround for Apache
-        if (not auth or
-                (auth.username, auth.password) != app.config["ADMIN_CREDENTIALS"]):
+            "REMOTE_USER"
+        )  # workaround for Apache
+        if (
+            not auth
+            or (auth.username, auth.password) != app.config["ADMIN_CREDENTIALS"]
+        ):
             raise HTTPException(
                 "",
                 Response(
