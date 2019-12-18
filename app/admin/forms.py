@@ -31,6 +31,8 @@ class CSVFileValidator(object):
 
 class ProviderImportForm(Form):
     file = FileField(
-        validators=[DataRequired(), FileSizeValidator(), CSVFileValidator()],
+        validators=[DataRequired(),
+                    FileSizeValidator(),
+                    CSVFileValidator()],
         description="Import Provider data from CSV file.",
     )
